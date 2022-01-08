@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './components/Modal';
 
 const mainStyle = {
   display: 'flex',
@@ -20,9 +21,12 @@ const buttonStyle = {
 
 const App = () => {
   return (
-    <main style={mainStyle}>
-      <button style={buttonStyle}>Click Me!</button>
-    </main>
+    <>
+      <Modal>Content</Modal>
+      <main style={mainStyle}>
+        <button style={buttonStyle}>Click Me!</button>
+      </main>
+    </>
   );
 };
 
