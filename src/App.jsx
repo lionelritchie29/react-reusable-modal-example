@@ -1,5 +1,5 @@
-import React from 'react';
-import Modal from './components/Modal';
+import React, { useContext } from 'react';
+import { ModalContext } from './providers/ModalProvider';
 
 const mainStyle = {
   display: 'flex',
@@ -20,13 +20,24 @@ const buttonStyle = {
 };
 
 const App = () => {
+  const [showModal, closeModal] = useContext(ModalContext);
+
+  const showDummyModal = () => {
+    const content = (
+      <div>
+        <div>Hello, Life is good!</div>
+        <button onClick={() => closeModal()}>Close</button>
+      </div>
+    );
+    showModal(content);
+  };
+
   return (
-    <>
-      <Modal>Content</Modal>
-      <main style={mainStyle}>
-        <button style={buttonStyle}>Click Me!</button>
-      </main>
-    </>
+    <main style={mainStyle}>
+      <button style={buttonStyle} onClick={() => showDummyModal()}>
+        Click Me!
+      </button>
+    </main>
   );
 };
 
